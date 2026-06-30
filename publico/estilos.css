@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+    --azul-marino: #1A3A5C;
+    --azul-marino-claro: #25517d;
+    --teal: #0A7265;
+    --teal-claro: #0d9484;
+    --gris-claro: #f4f6f8;
+    --gris-medio: #eef1f4;
+    --blanco: #ffffff;
+    --rojo: #c0392b;
+    --rojo-suave: #fdecea;
+    --verde: #1e8449;
+    --verde-suave: #e8f8ee;
+    --texto: #2c3e50;
+    --texto-suave: #6b7c93;
+    --borde: #dde4ea;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(160deg, #eef3f7 0%, #dde9f0 50%, #e7f0ec 100%);
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    color: var(--texto);
+    min-height: 100vh;
+}
+
+.contenedor {
+    max-width: 760px;
+    margin: 48px auto;
+    background: var(--blanco);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(26, 58, 92, 0.12), 0 2px 8px rgba(26, 58, 92, 0.06);
+    overflow: hidden;
+    animation: aparecer 0.4s ease-out;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.encabezado {
+    background: linear-gradient(120deg, var(--azul-marino) 0%, var(--azul-marino-claro) 100%);
+    color: var(--blanco);
+    padding: 32px 36px;
+    position: relative;
+    overflow: hidden;
+}
+
+.encabezado::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, var(--teal-claro) 0%, transparent 70%);
+    opacity: 0.35;
+    border-radius: 50%;
+}
+
+.encabezado h1 {
+    font-family: 'Poppins', sans-serif;
+    margin: 0 0 6px 0;
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    position: relative;
+}
+
+.encabezado p {
+    margin: 0;
+    color: #cfe0ec;
+    font-size: 0.92rem;
+    position: relative;
+}
+
+form {
+    padding: 36px;
+}
+
+.campo {
+    margin-bottom: 22px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 7px;
+    color: var(--azul-marino);
+    font-size: 0.92rem;
+    letter-spacing: 0.1px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--borde);
+    border-radius: 9px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: var(--texto);
+    background: var(--gris-claro);
+    transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #a3b1bf;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--teal);
+    background: var(--blanco);
+    box-shadow: 0 0 0 4px rgba(10, 114, 101, 0.12);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231A3A5C'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 20px;
+    padding-right: 38px;
+}
+
+.radio-grupo, .checkbox-grupo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.radio-grupo label, .checkbox-grupo label {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--gris-claro);
+    border: 1.5px solid var(--borde);
+    padding: 9px 14px;
+    border-radius: 24px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    color: var(--texto);
+    transition: all .18s ease;
+}
+
+.radio-grupo label:hover, .checkbox-grupo label:hover {
+    border-color: var(--teal);
+    background: #eef9f7;
+}
+
+.radio-grupo input, .checkbox-grupo input {
+    accent-color: var(--teal);
+    width: 16px;
+    height: 16px;
+}
+
+.error {
+    color: var(--rojo);
+    background: var(--rojo-suave);
+    border-left: 3px solid var(--rojo);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    margin-top: 6px;
+    font-weight: 500;
+}
+
+button, .boton {
+    background: linear-gradient(120deg, var(--teal) 0%, var(--teal-claro) 100%);
+    color: var(--blanco);
+    border: none;
+    padding: 13px 28px;
+    border-radius: 9px;
+    font-size: 0.98rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 14px rgba(10, 114, 101, 0.28);
+    margin-right: 10px;
+}
+
+button:hover, .boton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(10, 114, 101, 0.38);
+}
+
+button:active, .boton:active {
+    transform: translateY(0);
+}
+
+footer {
+    text-align: center;
+    padding: 18px;
+    background: var(--gris-medio);
+    color: var(--texto-suave);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--borde);
+}
+
+/* ----- Reporte ----- */
+table.reporte {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.86rem;
+    background: var(--blanco);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table.reporte th {
+    background: var(--azul-marino);
+    color: var(--blanco);
+    padding: 12px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+table.reporte td {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--gris-medio);
+    color: var(--texto);
+}
+
+table.reporte tbody tr:hover {
+    background: #f7fafc;
+}
+
+table.reporte tbody tr:nth-child(even) {
+    background: #fafcfd;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: var(--blanco);
+}
+
+.badge-verde { background: var(--verde); box-shadow: 0 2px 8px rgba(30, 132, 73, 0.3); }
+.badge-rojo  { background: var(--rojo); box-shadow: 0 2px 8px rgba(192, 57, 43, 0.3); }
